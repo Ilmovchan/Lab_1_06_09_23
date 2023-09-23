@@ -6,70 +6,70 @@ using System.Threading.Tasks;
 
 namespace ProcessSimulator
 {
+    public enum ProcessStatus { ready, running, waiting, terminated }
+
     public class Process
     {
-        public enum ProcessStatus { ready, running, waiting, terminated };
 
-        Random random = new Random();
-        int min = 1;
-        int max = 2;
-
-        public Process(long id, long addrSpace)
+        public Process(long pId, long addrSpace)
         {
-            this.id = id;
-            this.addrSpace = addrSpace;
-            name = "test";
-            status = ProcessStatus.ready;
+            id = pId;
+            name = "P" + pId.ToString();
+            Status = ProcessStatus.ready;
+            AddrSpace = addrSpace;
         }
 
         public void IncreaseWorkTime()
         {
-            if (workTime < burstTime) workTime++;
-            else workTime = burstTime;
-
-            if (status == ProcessStatus.running)
+            if (workTime == BurstTime)
             {
-                int randomInRange = random.Next(min, max + 1);
-                if (randomInRange == 1) status = ProcessStatus.terminated;
-                else status = ProcessStatus.waiting;
+                if (Status == ProcessStatus.running)
+                {
+                    Status = procRand.Next(0, 2) == 0 ? ProcessStatus.terminated : ProcessStatus.waiting;
+                }
+                else
+                {
+                    Status = ProcessStatus.ready;
+                }
             }
-            else if (status == ProcessStatus.waiting) status = ProcessStatus.ready;
+            else
+            {
+                workTime++;
+            }
         }
 
         public void ResetWorkTime()
         {
             workTime = 0;
         }
-
+        
         public override string ToString()
         {
-            string info = "id: " + id + "\n" + "name: " + name + "\n" + "burst time: " + burstTime + "\n" + "status: " + status + "\n" + "work time: " + workTime + "\n" +  "address space: " + addrSpace;
-            return info;
+            return "id: " + id + "\n" + "name: " + name + "\n" + "burst time: " + BurstTime + "\n" + "status: " + Status + "\n" + "work time: " + workTime + "\n" + "address space: " + AddrSpace;
         }
+
+        Random procRand = new Random();
 
         private long id;
         private string name;
-        private long burstTime;
-        private ProcessStatus status;
         private long workTime;
-        private long addrSpace;
 
         public long BurstTime 
         {
-            get { return burstTime; }
-            set { burstTime = value; }
+            get;
+            set;
         }
 
         public ProcessStatus Status
         {
-            get { return status; }
-            set { status = value; }
+            get;
+            set;
         }
 
-        private long AddrSpace 
+        public long AddrSpace 
         {
-            get { return addrSpace; }
-            set { addrSpace = value; }
+            get;
+            private set;
         }
     }
 }

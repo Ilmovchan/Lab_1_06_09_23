@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 namespace ProcessSimulator
 {
     public partial class Form1 : Form
@@ -6,13 +8,16 @@ namespace ProcessSimulator
         {
             InitializeComponent();
 
-            Process process = new Process(15328, 19378);
+            Process process1 = new Process(15328, 19378);
 
-            MessageBox.Show(process.ToString());
+            Resource resource = new Resource();
 
-            process.IncreaseWorkTime();
+            /*            MessageBox.Show(process.ToString());
 
-            MessageBox.Show(process.ToString());
+                        process.IncreaseWorkTime();
+
+                        MessageBox.Show(process.ToString());*/
         }
+
     }
 }

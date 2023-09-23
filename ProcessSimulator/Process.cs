@@ -8,7 +8,7 @@ namespace ProcessSimulator
 {
     public enum ProcessStatus { ready, running, waiting, terminated }
 
-    public class Process
+    public class Process : IComparable<Process>
     {
 
         public Process(long pId, long addrSpace)
@@ -38,6 +38,7 @@ namespace ProcessSimulator
             }
         }
 
+
         public void ResetWorkTime()
         {
             workTime = 0;
@@ -45,7 +46,23 @@ namespace ProcessSimulator
         
         public override string ToString()
         {
-            return "id: " + id + "\n" + "name: " + name + "\n" + "burst time: " + BurstTime + "\n" + "status: " + Status + "\n" + "work time: " + workTime + "\n" + "address space: " + AddrSpace;
+            string info = "";
+
+            info += $"ID: {id}\n";
+            info += $"NAME: {name}\n";
+            info += $"BURST TIME: {BurstTime}\n";
+            info += $"STATUS: {Status}\n";
+            info += $"WORK TIME: {workTime}\n";
+            info += $"ADDRESS SPACE: {AddrSpace}\n";
+
+            return info;
+        }
+
+        public int CompareTo(Process other)
+        {
+            if (other == null) return 1;
+
+            return other.BurstTime.CompareTo(this.BurstTime);
         }
 
         Random procRand = new Random();

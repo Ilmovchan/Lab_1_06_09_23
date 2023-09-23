@@ -12,14 +12,11 @@ namespace ProcessSimulator
         public void Save(long size)
         {
             Size = size;
-            occupiedSize = 0;
-            FreeSize = Size - OccupiedSize;
         }
 
         public void Clear()
         {
             occupiedSize = 0;
-            FreeSize = Size;
         }
 
         private long occupiedSize;
@@ -32,13 +29,13 @@ namespace ProcessSimulator
 
         public long OccupiedSize
         {
-            get { return occupiedSize; }
-            set { occupiedSize = value; }
+            get;
+            set;
         }
 
         public long FreeSize
         {
-            get;
+            get {return Size - occupiedSize; }
             private set;
         }
 

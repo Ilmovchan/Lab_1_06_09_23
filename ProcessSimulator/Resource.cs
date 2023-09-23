@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace ProcessSimulator
 {
@@ -18,9 +19,10 @@ namespace ProcessSimulator
             }
         }
 
+        [Pure]
         public bool IsFree()
         {
-            return activeProcess == null ? true : false;
+            return activeProcess == null;
         }
 
         public void Clear()

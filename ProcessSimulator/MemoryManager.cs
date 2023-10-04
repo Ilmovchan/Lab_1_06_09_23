@@ -4,21 +4,19 @@ namespace ProcessSimulator
 	public class MemoryManager
 	{
 
-		public void Save(long size)
+		public void Save(Memory memory)
 		{
-			this.memory = size;
+			this.memory = memory;
 		}
 
 		public Memory Allocate(Process process)
 		{
-			try
+			if (memory != null)
 			{
-				memory += process.AddrSpace;
-			}
-			catch
-			{
-				return null;
-			}
+                memory += process.AddrSpace;
+            }
+
+			else return null;
 		}
 
 		public Memory Free(Process process)

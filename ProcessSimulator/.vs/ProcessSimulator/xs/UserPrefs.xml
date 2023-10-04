@@ -1,26 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Model.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MemoryManager.cs">
     <Files>
-      <File FileName="DeviceScheduler.cs" Line="15" Column="53" />
       <File FileName="CPUScheduler.cs" Line="21" Column="1" />
-      <File FileName="Model.cs" Line="8" Column="4" />
+      <File FileName="MemoryManager.cs" Line="13" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ProcessSimulator">
             <Node name="ProcessSimulator">
-              <Node name="Model.cs" selected="True" />
+              <Node name="MemoryManager.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

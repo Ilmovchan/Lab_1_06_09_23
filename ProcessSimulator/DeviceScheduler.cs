@@ -12,7 +12,7 @@ namespace ProcessSimulator
         public Queue<Process, long> Session()
         {
             resource.ActiveProcess = queue.Dequeue();
-            resource.ActiveProcess = ProcessStatus.t;
+            resource.ActiveProcess = ProcessStatus.terminated;
             return queue;
         }
 

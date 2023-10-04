@@ -11,32 +11,31 @@ namespace ProcessSimulator
 
         public void Save(long size)
         {
-            Size = size;
+            FreeSize = size;
+            OccupiedSize = 0;
+            return this;
         }
 
         public void Clear()
         {
+            FreeSize += OccupiedSize;
             occupiedSize = 0;
+            return this;
         }
 
         private long occupiedSize;
-
-        public long Size
-        {
-            get;
-            private set;
-        }
+        private long freeSize;
 
         public long OccupiedSize
         {
-            get;
-            set;
+            get { return occupiedSize; }
+            set { occupiedSize = value; }
         }
 
         public long FreeSize
         {
-            get {return Size - occupiedSize; }
-            private set;
+            get { return freeSize; }
+            set { freeSize = value; }
         }
 
     }

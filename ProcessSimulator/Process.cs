@@ -8,7 +8,7 @@ namespace ProcessSimulator
 {
     public enum ProcessStatus { ready, running, waiting, terminated }
 
-    public class Process : IComparable<Process>
+    public class Process
     {
 
         public Process(long pId, long addrSpace)

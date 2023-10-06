@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="MemoryManager.cs">
     <Files>
-      <File FileName="CPUScheduler.cs" Line="21" Column="1" />
+      <File FileName="CPUScheduler.cs" />
       <File FileName="MemoryManager.cs" Line="13" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="ProcessSimulator">
-            <Node name="ProcessSimulator">
+          <Node name="ProcessSimulator" expanded="True">
+            <Node name="ProcessSimulator" expanded="True">
               <Node name="MemoryManager.cs" selected="True" />
             </Node>
           </Node>

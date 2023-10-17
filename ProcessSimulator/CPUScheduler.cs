@@ -6,24 +6,21 @@ using System.Threading.Tasks;
 
 namespace ProcessSimulator
 {
-    public class CPUScheduler
+    class CPUScheduler
     {
+        private Resource resource;
+        private PriorityQueue<Process, long> queue;
 
-        public CPUScheduler(Resource resource, Queue<Process, long> queue)
+        public CPUScheduler(Resource resource, PriorityQueue<Process, long> queue)
         {
             this.resource = resource;
             this.queue = queue;
         }
-
-        public Queue<Process, long> Session()
+        public PriorityQueue<Process, long> Session()
         {
             resource.ActiveProcess = queue.Dequeue();
-            resource.ActiveProcess = ProcessStatus.running;
+            resource.ActiveProcess.Status = ProcessStatus.running;
             return queue;
-
         }
-
-        private Resource resource;
-        private PriorityQueue<Process, long> queue;
     }
 }

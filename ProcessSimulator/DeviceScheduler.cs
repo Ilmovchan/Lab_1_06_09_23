@@ -1,23 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace ProcessSimulator
 {
-	public class DeviceScheduler
-	{
-		public DeviceScheduler(Resource resource, Queue<Process, long> queue)
-		{
+    class DeviceScheduler
+    {
+        private Resource resource;
+        private Queue<Process> queue;
+
+        public DeviceScheduler(Resource resource, Queue<Process> queue)
+        {
             this.resource = resource;
             this.queue = queue;
         }
-
-        public Queue<Process, long> Session()
+        public Queue<Process> Session()
         {
             resource.ActiveProcess = queue.Dequeue();
-            resource.ActiveProcess = ProcessStatus.terminated;
             return queue;
         }
-
-        private Resource resource;
-        Queue<Process, long> queue;
     }
 }
-

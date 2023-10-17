@@ -1,30 +1,33 @@
 ﻿using System;
 namespace ProcessSimulator
 {
-	public class MemoryManager
-	{
+    class MemoryManager
+    {
+        private Memory memory;
 
-		public void Save(Memory memory)
-		{
-			this.memory = memory;
-		}
+        public void Save(Memory memory)
+        {
+            this.memory = memory;
+        }
 
-		public Memory Allocate(Process process)
-		{
-			if (memory != null)
-			{
-                memory += process.AddrSpace;
+        public Memory Allocate(Process process)
+        {
+            if (memory.FreeSize >= process.AddrSpace)
+            {
+                memory.OccupiedSize += process.AddrSpace;
+                return memory;
             }
+            else
+            {
+                return null;
+            }
+        }
 
-			else return null;
-		}
-
-		public Memory Free(Process process)
-		{
-			memory -= process.AddrSpace;
-		}
-
-		private Memory memory;
-	}
+        public Memory Free(Process process)
+        {
+            memory.OccupiedSize -= process.AddrSpace;
+            return memory;
+        }
+    }
 }
 
